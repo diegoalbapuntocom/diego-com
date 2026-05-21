@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>diego.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --faint: #999999;
+      --border: #e8e8e8;
+      --surface: #f7f7f5;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ARTICLE */
+    .article-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--text); }
+    .back-link svg { width: 14px; height: 14px; }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin-bottom: 1.25rem;
+    }
+
+    .article-title {
+      font-family: var(--serif);
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-meta {
+      font-size: 12px;
+      color: var(--faint);
+      letter-spacing: 0.04em;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cover-img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border);
+    }
+
+    /* AD inside article */
+    .ad-banner {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2.5rem 0;
+    }
+    .ad-banner span {
+      font-size: 11px;
+      color: var(--faint);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .article-body {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #222;
+    }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 400;
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.01em;
+    }
+    .article-body h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      margin: 2rem 0 0.75rem;
+    }
+    .article-body blockquote {
+      border-left: 2px solid var(--border);
+      margin: 2rem 0;
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      color: var(--muted);
+      font-style: italic;
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.5;
+    }
+    .article-body img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .footer-copy { font-size: 11px; color: var(--faint); }
+
+    @media (max-width: 600px) {
+      .article-title { font-size: 30px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">diego.com</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#articulos">Artículos</a></li>
+        <li><a href="sobre.html">Sobre mí</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="article-wrap" id="article-content">
+    <p style="color:#999; font-size:14px;">Cargando entrada...</p>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">diego.com</span>
+      <span class="footer-copy" id="footer-year"></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent =
+      '© ' + new Date().getFullYear() + ' · Todos los derechos reservados';
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    fetch('posts.json')
+      .then(r => r.json())
+      .then(data => {
+        const post = (data.posts || []).find(p => p.id === id);
+        if (!post) {
+          document.getElementById('article-content').innerHTML =
+            '<p style="color:#999;font-size:14px;">Entrada no encontrada.</p>';
+          return;
+        }
+
+        document.title = post.title + ' · diego.com';
+
+        document.getElementById('article-content').innerHTML = `
+          <a href="index.html" class="back-link">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 2L4 7l5 5"/>
+            </svg>
+            Volver al inicio
+          </a>
+
+          <span class="tag">${post.category}</span>
+          <h1 class="article-title">${post.title}</h1>
+          <p class="article-meta">${post.date} · ${post.readTime} de lectura</p>
+
+          ${post.image ? `<img src="${post.image}" class="cover-img" alt="${post.title}" />` : ''}
+
+          <!-- ADSENSE: reemplaza este bloque con tu código de Google AdSense -->
+          <div class="ad-banner"><span>Publicidad</span></div>
+          <!-- FIN ADSENSE -->
+
+          <div class="article-body">${post.content}</div>
+        `;
+      })
+      .catch(() => {
+        document.getElementById('article-content').innerHTML =
+          '<p style="color:#999;font-size:14px;">No se pudo cargar la entrada.</p>';
+      });
+  </script>
+
+</body>
+</html>

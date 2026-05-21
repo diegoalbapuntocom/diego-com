@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "id": "001",
+      "title": "Bienvenido a diego.com",
+      "category": "Artículo",
+      "excerpt": "Este es el primer artículo del blog. Aquí escribirás el resumen que aparece en la portada.",
+      "content": "<p>Este es el contenido completo de tu primera entrada. Puedes escribir párrafos separados con etiquetas como esta.</p><p>Para agregar una nueva sección dentro del artículo puedes usar <strong>negritas</strong> o subtítulos.</p><h2>Un subtítulo de ejemplo</h2><p>Y continuar con más texto después del subtítulo. Así de simple funciona el blog.</p><blockquote>Aquí puedes poner una cita destacada que resalte visualmente del resto del texto.</blockquote><p>Cuando quieras publicar un artículo nuevo, solo edita este archivo y agrega una entrada más siguiendo el mismo formato.</p>",
+      "image": "",
+      "date": "20 mayo 2026",
+      "readTime": "2 min"
+    }
+  ]
+}
