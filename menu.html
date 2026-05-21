@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú · diego.com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#f4efe8;--cream-2:#ede8e0;--text:#1c1714;--muted:#7a6e65;--faint:#b0a69c;--accent:#b07045;--border:#ddd6cc;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);font-weight:300;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    nav{position:sticky;top:0;z-index:200;background:rgba(244,239,232,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:var(--serif);font-size:22px;font-weight:400}
+    .nav-links{display:flex;gap:2.5rem;list-style:none}
+    .nav-links a{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .wrap{max-width:1100px;margin:0 auto;padding:4rem 2.5rem 7rem}
+    .page-title{font-family:var(--serif);font-size:54px;font-weight:400;letter-spacing:-0.02em;margin-bottom:3rem}
+    .page-title em{font-style:italic;color:var(--accent)}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--border)}
+    .menu-item{padding:2rem 1.75rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);cursor:pointer;transition:background .2s}
+    .menu-item:hover{background:var(--cream-2)}
+    .menu-num{font-size:11px;letter-spacing:0.1em;color:var(--faint);margin-bottom:0.75rem}
+    .menu-cat{font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
+    .menu-title{font-family:var(--serif);font-size:20px;font-weight:400;line-height:1.3;margin-bottom:0.5rem}
+    .menu-date{font-size:11px;color:var(--faint)}
+    .empty{grid-column:1/-1;padding:4rem;text-align:center;font-size:14px;color:var(--faint)}
+    footer{border-top:1px solid var(--border);background:var(--cream-2)}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:1.75rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+    .footer-logo{font-family:var(--serif);font-size:16px;color:var(--muted)}
+    .footer-copy{font-size:11px;color:var(--faint)}
+    @media(max-width:768px){.menu-grid{grid-template-columns:1fr}.nav-links{gap:1.25rem}.nav-inner,.wrap{padding-left:1.25rem;padding-right:1.25rem}.page-title{font-size:38px}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner">
+    <a href="index.html" class="logo">diego.com</a>
+    <ul class="nav-links">
+      <li><a href="menu.html" class="active">Menú</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div></nav>
+  <div class="wrap">
+    <h1 class="page-title">Todo lo<br><em>publicado.</em></h1>
+    <div class="menu-grid" id="menu-grid"><p class="empty">Cargando entradas...</p></div>
+  </div>
+  <footer><div class="footer-inner">
+    <span class="footer-logo">diego.com</span>
+    <span class="footer-copy" id="y"></span>
+  </div></footer>
+  <script>
+    document.getElementById('y').textContent = '© ' + new Date().getFullYear() + ' · Todos los derechos reservados';
+    fetch('posts.json').then(r=>r.json()).then(data=>{
+      const posts = data.posts||[];
+      if(!posts.length){document.getElementById('menu-grid').innerHTML='<p class="empty">Aún no hay entradas publicadas.</p>';return;}
+      document.getElementById('menu-grid').innerHTML = posts.map((p,i)=>`
+        <a href="post.html?id=${p.id}" class="menu-item">
+          <p class="menu-num">0${i+1}</p>
+          <p class="menu-cat">${p.category}</p>
+          <h2 class="menu-title">${p.title}</h2>
+          <p class="menu-date">${p.date} · ${p.readTime}</p>
+        </a>`).join('');
+    }).catch(()=>{document.getElementById('menu-grid').innerHTML='<p class="empty">No se pudieron cargar las entradas.</p>';});
+  </script>
+</body>
+</html>

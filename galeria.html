@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería · diego.com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#f4efe8;--cream-2:#ede8e0;--text:#1c1714;--muted:#7a6e65;--faint:#b0a69c;--accent:#b07045;--border:#ddd6cc;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);font-weight:300;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    nav{position:sticky;top:0;z-index:200;background:rgba(244,239,232,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:var(--serif);font-size:22px;font-weight:400}
+    .nav-links{display:flex;gap:2.5rem;list-style:none}
+    .nav-links a{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .wrap{max-width:1100px;margin:0 auto;padding:4rem 2.5rem 7rem}
+    .page-title{font-family:var(--serif);font-size:54px;font-weight:400;letter-spacing:-0.02em;margin-bottom:3rem}
+    .page-title em{font-style:italic;color:var(--accent)}
+    .gallery-grid{columns:3;gap:1rem}
+    .gallery-item{break-inside:avoid;margin-bottom:1rem;overflow:hidden;border:1px solid var(--border);border-radius:2px;background:var(--cream-2);cursor:pointer;transition:opacity .2s}
+    .gallery-item:hover{opacity:0.85}
+    .gallery-item img{width:100%;display:block}
+    .gallery-placeholder{height:200px;display:flex;align-items:center;justify-content:center}
+    .gallery-placeholder:nth-child(2){height:280px}
+    .gallery-placeholder:nth-child(3){height:160px}
+    .gallery-placeholder svg{opacity:.2}
+    .notice{font-size:13px;color:var(--muted);margin-bottom:2.5rem;padding:1.25rem 1.5rem;border:1px solid var(--border);border-radius:2px;background:var(--cream-2);line-height:1.6}
+    .notice strong{font-weight:400;color:var(--accent)}
+    footer{border-top:1px solid var(--border);background:var(--cream-2)}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:1.75rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+    .footer-logo{font-family:var(--serif);font-size:16px;color:var(--muted)}
+    .footer-copy{font-size:11px;color:var(--faint)}
+    @media(max-width:768px){.gallery-grid{columns:2}.nav-links{gap:1.25rem}.nav-inner,.wrap{padding-left:1.25rem;padding-right:1.25rem}.page-title{font-size:38px}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner">
+    <a href="index.html" class="logo">diego.com</a>
+    <ul class="nav-links">
+      <li><a href="menu.html">Menú</a></li>
+      <li><a href="galeria.html" class="active">Galería</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div></nav>
+  <div class="wrap">
+    <h1 class="page-title">Mi<br><em>galería.</em></h1>
+    <p class="notice">Para agregar imágenes a la galería, sube tus archivos a GitHub en una carpeta llamada <strong>imagenes/</strong> y dile a Claude el nombre de cada imagen. Las irá integrando aquí automáticamente.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-placeholder"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="#7a6e65" stroke-width="1"/><circle cx="17" cy="20" r="4" stroke="#7a6e65" stroke-width="1"/><path d="M6 32l10-8 8 6 6-5 12 9" stroke="#7a6e65" stroke-width="1" fill="none"/></svg></div>
+      <div class="gallery-item gallery-placeholder" style="height:280px"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="#7a6e65" stroke-width="1"/><circle cx="17" cy="20" r="4" stroke="#7a6e65" stroke-width="1"/><path d="M6 32l10-8 8 6 6-5 12 9" stroke="#7a6e65" stroke-width="1" fill="none"/></svg></div>
+      <div class="gallery-item gallery-placeholder" style="height:160px"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="#7a6e65" stroke-width="1"/><circle cx="17" cy="20" r="4" stroke="#7a6e65" stroke-width="1"/><path d="M6 32l10-8 8 6 6-5 12 9" stroke="#7a6e65" stroke-width="1" fill="none"/></svg></div>
+      <div class="gallery-item gallery-placeholder" style="height:240px"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="#7a6e65" stroke-width="1"/><circle cx="17" cy="20" r="4" stroke="#7a6e65" stroke-width="1"/><path d="M6 32l10-8 8 6 6-5 12 9" stroke="#7a6e65" stroke-width="1" fill="none"/></svg></div>
+      <div class="gallery-item gallery-placeholder"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="#7a6e65" stroke-width="1"/><circle cx="17" cy="20" r="4" stroke="#7a6e65" stroke-width="1"/><path d="M6 32l10-8 8 6 6-5 12 9" stroke="#7a6e65" stroke-width="1" fill="none"/></svg></div>
+      <div class="gallery-item gallery-placeholder" style="height:300px"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="#7a6e65" stroke-width="1"/><circle cx="17" cy="20" r="4" stroke="#7a6e65" stroke-width="1"/><path d="M6 32l10-8 8 6 6-5 12 9" stroke="#7a6e65" stroke-width="1" fill="none"/></svg></div>
+    </div>
+  </div>
+  <footer><div class="footer-inner">
+    <span class="footer-logo">diego.com</span>
+    <span class="footer-copy" id="y"></span>
+  </div></footer>
+  <script>document.getElementById('y').textContent='© '+new Date().getFullYear()+' · Todos los derechos reservados';</script>
+</body>
+</html>

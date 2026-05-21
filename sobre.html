@@ -1,66 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sobre mí · diego.com</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #ffffff; --text: #111111; --muted: #666666;
-      --faint: #999999; --border: #e8e8e8; --surface: #f7f7f5;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
-    }
-    body { font-family: var(--sans); background: var(--bg); color: var(--text); font-weight: 300; -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; color: inherit; }
-    nav { border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); z-index: 100; }
-    .nav-inner { max-width: 860px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; height: 60px; }
-    .logo { font-family: var(--serif); font-size: 18px; font-weight: 400; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); }
-    .wrap { max-width: 640px; margin: 0 auto; padding: 5rem 2rem 6rem; }
-    .about-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin-bottom: 2rem; }
-    .about-title { font-family: var(--serif); font-size: 44px; font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 2.5rem; }
-    .about-title em { font-style: italic; color: var(--muted); }
-    .about-body { font-size: 17px; line-height: 1.8; color: #333; }
-    .about-body p { margin-bottom: 1.5rem; }
-    footer { border-top: 1px solid var(--border); }
-    .footer-inner { max-width: 860px; margin: 0 auto; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .footer-logo { font-family: var(--serif); font-size: 14px; color: var(--muted); }
-    .footer-copy { font-size: 11px; color: var(--faint); }
-    @media (max-width: 600px) { .about-title { font-size: 32px; } .nav-links { display: none; } }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#f4efe8;--cream-2:#ede8e0;--text:#1c1714;--muted:#7a6e65;--faint:#b0a69c;--accent:#b07045;--border:#ddd6cc;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);font-weight:300;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    nav{position:sticky;top:0;z-index:200;background:rgba(244,239,232,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:var(--serif);font-size:22px;font-weight:400}
+    .nav-links{display:flex;gap:2.5rem;list-style:none}
+    .nav-links a{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
+    .wrap{max-width:640px;margin:0 auto;padding:5rem 2rem 7rem}
+    .about-label{font-size:10px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--faint);margin-bottom:2rem}
+    .about-title{font-family:var(--serif);font-size:54px;font-weight:400;line-height:1.1;letter-spacing:-0.02em;margin-bottom:2.5rem}
+    .about-title em{font-style:italic;color:var(--accent)}
+    .about-body{font-size:17px;line-height:1.85;color:#2a211c}
+    .about-body p{margin-bottom:1.75rem}
+    footer{border-top:1px solid var(--border);background:var(--cream-2)}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:1.75rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+    .footer-logo{font-family:var(--serif);font-size:16px;color:var(--muted)}
+    .footer-copy{font-size:11px;color:var(--faint)}
+    @media(max-width:600px){.about-title{font-size:38px}.nav-links{gap:1.25rem}.nav-inner{padding:0 1.25rem}}
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="logo">diego.com</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="index.html#articulos">Artículos</a></li>
-        <li><a href="sobre.html">Sobre mí</a></li>
-      </ul>
-    </div>
-  </nav>
+  <nav><div class="nav-inner">
+    <a href="index.html" class="logo">diego.com</a>
+    <ul class="nav-links">
+      <li><a href="menu.html">Menú</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div></nav>
   <div class="wrap">
     <p class="about-label">Sobre mí</p>
-    <h1 class="about-title">Hola, soy<br><em>Diego.</em></h1>
+    <h1 class="about-title">Hola,<br>soy <em>Diego.</em></h1>
     <div class="about-body">
       <p>Escribe aquí lo que quieras que el mundo sepa de ti. Puedes contar quién eres, qué te mueve, por qué creaste este espacio.</p>
-      <p>Este texto lo editas directamente en el archivo <strong>sobre.html</strong> desde tu repositorio de GitHub, igual que cualquier otro archivo del blog.</p>
+      <p>Este texto lo editas directamente en el archivo <strong>sobre.html</strong> desde tu repositorio de GitHub.</p>
     </div>
   </div>
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-logo">diego.com</span>
-      <span class="footer-copy" id="y"></span>
-    </div>
-  </footer>
-  <script>document.getElementById('y').textContent = '© ' + new Date().getFullYear() + ' · Todos los derechos reservados';</script>
+  <footer><div class="footer-inner">
+    <span class="footer-logo">diego.com</span>
+    <span class="footer-copy" id="y"></span>
+  </div></footer>
+  <script>document.getElementById('y').textContent='© '+new Date().getFullYear()+' · Todos los derechos reservados';</script>
 </body>
 </html>

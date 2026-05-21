@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop · diego.com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#f4efe8;--cream-2:#ede8e0;--text:#1c1714;--muted:#7a6e65;--faint:#b0a69c;--accent:#b07045;--border:#ddd6cc;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);font-weight:300;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    nav{position:sticky;top:0;z-index:200;background:rgba(244,239,232,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:var(--serif);font-size:22px;font-weight:400}
+    .nav-links{display:flex;gap:2.5rem;list-style:none}
+    .nav-links a{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .wrap{max-width:1100px;margin:0 auto;padding:4rem 2.5rem 7rem}
+    .page-title{font-family:var(--serif);font-size:54px;font-weight:400;letter-spacing:-0.02em;margin-bottom:1rem}
+    .page-title em{font-style:italic;color:var(--accent)}
+    .page-sub{font-size:14px;color:var(--muted);margin-bottom:3rem;line-height:1.7}
+    .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .product-card{border:1px solid var(--border);border-radius:2px;overflow:hidden;background:var(--cream)}
+    .product-img{background:var(--cream-2);height:260px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border)}
+    .product-img svg{opacity:.2}
+    .product-body{padding:1.25rem 1.5rem 1.5rem}
+    .product-name{font-family:var(--serif);font-size:20px;font-weight:400;margin-bottom:0.4rem}
+    .product-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:1rem}
+    .product-price{font-size:15px;color:var(--accent);margin-bottom:1.25rem}
+    .btn{display:inline-block;font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--text);border:1px solid var(--border);border-radius:2px;padding:10px 20px;transition:background .2s,border-color .2s}
+    .btn:hover{background:var(--cream-2);border-color:var(--accent)}
+    .notice{font-size:13px;color:var(--muted);margin-bottom:2.5rem;padding:1.25rem 1.5rem;border:1px solid var(--border);border-radius:2px;background:var(--cream-2);line-height:1.6}
+    .notice strong{font-weight:400;color:var(--accent)}
+    footer{border-top:1px solid var(--border);background:var(--cream-2)}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:1.75rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+    .footer-logo{font-family:var(--serif);font-size:16px;color:var(--muted)}
+    .footer-copy{font-size:11px;color:var(--faint)}
+    @media(max-width:768px){.shop-grid{grid-template-columns:1fr}.nav-links{gap:1.25rem}.nav-inner,.wrap{padding-left:1.25rem;padding-right:1.25rem}.page-title{font-size:38px}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner">
+    <a href="index.html" class="logo">diego.com</a>
+    <ul class="nav-links">
+      <li><a href="menu.html">Menú</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div></nav>
+  <div class="wrap">
+    <h1 class="page-title">La<br><em>tienda.</em></h1>
+    <p class="page-sub">Prints, originales y objetos de edición limitada.</p>
+    <p class="notice">Para agregar productos reales al shop, dile a Claude el nombre, descripción, precio e imagen de cada producto. También puedes integrar <strong>Stripe</strong> o <strong>Gumroad</strong> para cobros directos.</p>
+    <div class="shop-grid">
+      <div class="product-card">
+        <div class="product-img"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="10" y="10" width="40" height="40" stroke="#7a6e65" stroke-width="1"/><path d="M10 30h40M30 10v40" stroke="#7a6e65" stroke-width="0.5"/></svg></div>
+        <div class="product-body"><p class="product-name">Print — Próximamente</p><p class="product-desc">Descripción del producto. Tamaño, materiales, edición limitada.</p><p class="product-price">$000 MXN</p><span class="btn">Próximamente</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="10" y="10" width="40" height="40" stroke="#7a6e65" stroke-width="1"/><path d="M10 30h40M30 10v40" stroke="#7a6e65" stroke-width="0.5"/></svg></div>
+        <div class="product-body"><p class="product-name">Original — Próximamente</p><p class="product-desc">Descripción del producto. Tamaño, materiales, edición limitada.</p><p class="product-price">$000 MXN</p><span class="btn">Próximamente</span></div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="10" y="10" width="40" height="40" stroke="#7a6e65" stroke-width="1"/><path d="M10 30h40M30 10v40" stroke="#7a6e65" stroke-width="0.5"/></svg></div>
+        <div class="product-body"><p class="product-name">Objeto — Próximamente</p><p class="product-desc">Descripción del producto. Tamaño, materiales, edición limitada.</p><p class="product-price">$000 MXN</p><span class="btn">Próximamente</span></div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="footer-inner">
+    <span class="footer-logo">diego.com</span>
+    <span class="footer-copy" id="y"></span>
+  </div></footer>
+  <script>document.getElementById('y').textContent='© '+new Date().getFullYear()+' · Todos los derechos reservados';</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto · diego.com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#f4efe8;--cream-2:#ede8e0;--text:#1c1714;--muted:#7a6e65;--faint:#b0a69c;--accent:#b07045;--border:#ddd6cc;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);font-weight:300;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    nav{position:sticky;top:0;z-index:200;background:rgba(244,239,232,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:var(--serif);font-size:22px;font-weight:400}
+    .nav-links{display:flex;gap:2.5rem;list-style:none}
+    .nav-links a{font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .wrap{max-width:640px;margin:0 auto;padding:5rem 2rem 7rem}
+    .page-title{font-family:var(--serif);font-size:54px;font-weight:400;letter-spacing:-0.02em;margin-bottom:1rem}
+    .page-title em{font-style:italic;color:var(--accent)}
+    .page-sub{font-size:14px;color:var(--muted);margin-bottom:3rem;line-height:1.7}
+    .form-group{margin-bottom:1.5rem}
+    label{display:block;font-size:10px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem}
+    input,textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:0.6rem 0;font-family:var(--sans);font-size:15px;font-weight:300;color:var(--text);outline:none;transition:border-color .2s;resize:none}
+    input:focus,textarea:focus{border-color:var(--accent)}
+    input::placeholder,textarea::placeholder{color:var(--faint)}
+    textarea{min-height:120px;padding-top:0.6rem}
+    .submit-btn{margin-top:2rem;display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--text);background:transparent;border:none;border-bottom:1px solid var(--text);padding-bottom:3px;cursor:pointer;transition:color .2s,border-color .2s}
+    .submit-btn:hover{color:var(--accent);border-color:var(--accent)}
+    .submit-btn svg{width:16px;height:16px}
+    .success{display:none;padding:1rem 1.25rem;border:1px solid var(--border);border-radius:2px;background:var(--cream-2);font-size:13px;color:var(--muted);margin-top:1.5rem}
+    footer{border-top:1px solid var(--border);background:var(--cream-2)}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:1.75rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+    .footer-logo{font-family:var(--serif);font-size:16px;color:var(--muted)}
+    .footer-copy{font-size:11px;color:var(--faint)}
+    @media(max-width:600px){.page-title{font-size:38px}.nav-links{gap:1.25rem}.nav-inner{padding:0 1.25rem}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner">
+    <a href="index.html" class="logo">diego.com</a>
+    <ul class="nav-links">
+      <li><a href="menu.html">Menú</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contacto.html" class="active">Contacto</a></li>
+    </ul>
+  </div></nav>
+  <div class="wrap">
+    <h1 class="page-title">Hablemos.</h1>
+    <p class="page-sub">Para colaboraciones, preguntas o simplemente saludar.</p>
+    <form id="contact-form" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+      <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required /></div>
+      <div class="form-group"><label for="email">Correo</label><input type="email" id="email" name="email" placeholder="tu@correo.com" required /></div>
+      <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="Cuéntame..." required></textarea></div>
+      <button type="submit" class="submit-btn">
+        Enviar mensaje
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </button>
+    </form>
+    <div class="success" id="success">Mensaje enviado. Te responderé pronto.</div>
+  </div>
+  <footer><div class="footer-inner">
+    <span class="footer-logo">diego.com</span>
+    <span class="footer-copy" id="y"></span>
+  </div></footer>
+  <script>
+    document.getElementById('y').textContent='© '+new Date().getFullYear()+' · Todos los derechos reservados';
+    document.getElementById('contact-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      const form=this;
+      fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+        .then(r=>{if(r.ok){form.style.display='none';document.getElementById('success').style.display='block';}})
+        .catch(()=>{});
+    });
+  </script>
+</body>
+</html>

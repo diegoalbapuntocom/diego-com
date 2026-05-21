@@ -7,25 +7,28 @@
   <meta name="description" content="Ideas, arte y reflexiones sin filtro." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #666666;
-      --faint: #999999;
-      --border: #e8e8e8;
-      --surface: #f7f7f5;
-      --accent: #111111;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
+      --cream:    #f4efe8;
+      --cream-2:  #ede8e0;
+      --cream-3:  #e5dfd5;
+      --text:     #1c1714;
+      --muted:    #7a6e65;
+      --faint:    #b0a69c;
+      --accent:   #b07045;
+      --border:   #ddd6cc;
+      --serif:    'Cormorant Garamond', Georgia, serif;
+      --sans:     'Jost', system-ui, sans-serif;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--sans);
-      background: var(--bg);
+      background: var(--cream);
       color: var(--text);
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
@@ -33,112 +36,164 @@
 
     a { text-decoration: none; color: inherit; }
 
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* NAV */
+    /* ── NAV ── */
     nav {
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      z-index: 100;
+      z-index: 200;
+      background: rgba(244,239,232,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
     .nav-inner {
-      max-width: 860px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 2.5rem;
+      height: 64px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      height: 60px;
+      justify-content: space-between;
     }
     .logo {
       font-family: var(--serif);
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 400;
       letter-spacing: -0.01em;
+      color: var(--text);
     }
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       list-style: none;
     }
     .nav-links a {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 400;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
       transition: color 0.2s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.25s;
     }
     .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
 
-    /* HERO */
+    /* ── HERO ── */
     .hero {
-      padding: 5rem 0 4rem;
+      min-height: 88vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: 52px;
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--muted);
-    }
-    .hero-desc {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--muted);
-      margin-top: 1.5rem;
-    }
-    .hero-visual {
-      background: var(--surface);
-      border-radius: 16px;
-      height: 280px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border);
+      position: relative;
       overflow: hidden;
     }
-    .hero-visual svg { opacity: 0.2; }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 3.5rem 5rem 3rem;
+      max-width: 600px;
+    }
+    .hero-left h1 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-left h1 em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 300;
+    }
+    .hero-rule {
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .hero-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 340px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 3px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero-cta:hover { color: var(--accent); border-color: var(--accent); }
+    .hero-cta svg { width: 16px; height: 16px; }
 
-    /* AD BANNER */
-    .ad-banner {
-      margin: 2rem 0;
-      background: var(--surface);
-      border: 1px dashed var(--border);
-      border-radius: 8px;
-      height: 90px;
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--cream-2);
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* placeholder when no hero image */
+    .hero-placeholder {
+      width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: var(--cream-2);
     }
-    .ad-banner span {
-      font-size: 11px;
-      color: var(--faint);
-      letter-spacing: 0.1em;
+    .hero-placeholder svg { opacity: 0.15; }
+
+    /* ── AD ── */
+    .ad-wrap {
+      background: var(--cream-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .ad-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90px;
+    }
+    .ad-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      color: var(--faint);
     }
 
-    /* SECTION LABEL */
+    /* ── SECTION LABEL ── */
     .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--faint);
       padding-bottom: 1rem;
@@ -146,32 +201,39 @@
       margin-bottom: 2rem;
     }
 
-    /* FEATURED */
-    .featured { padding: 3rem 0 2rem; }
+    /* ── CONTENT AREA ── */
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    /* ── FEATURED ── */
+    .featured-section { padding: 4rem 0 2rem; }
     .featured-card {
       display: grid;
       grid-template-columns: 1fr 1fr;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 4px;
       overflow: hidden;
-      transition: border-color 0.2s;
+      transition: box-shadow 0.25s;
       cursor: pointer;
+      background: var(--cream);
     }
-    .featured-card:hover { border-color: #aaa; }
+    .featured-card:hover {
+      box-shadow: 0 8px 40px rgba(28,23,20,0.08);
+    }
     .featured-img {
-      background: var(--surface);
-      min-height: 240px;
+      background: var(--cream-2);
+      min-height: 320px;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
-    .featured-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .featured-img img { width: 100%; height: 100%; object-fit: cover; }
     .featured-content {
-      padding: 2rem;
+      padding: 3rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -179,38 +241,34 @@
     .tag {
       display: inline-block;
       font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      font-weight: 400;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 3px 8px;
-      margin-bottom: 1rem;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
     }
     .featured-content h2 {
       font-family: var(--serif);
-      font-size: 26px;
+      font-size: 32px;
       font-weight: 400;
-      line-height: 1.25;
+      line-height: 1.2;
       letter-spacing: -0.01em;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
     .featured-content p {
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--muted);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
     .meta {
       font-size: 11px;
       color: var(--faint);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
     }
 
-    /* GRID */
-    .posts-section { padding: 3rem 0; }
+    /* ── POSTS GRID ── */
+    .posts-section { padding: 3rem 0 5rem; }
     .posts-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -218,132 +276,142 @@
     }
     .post-card {
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 4px;
       overflow: hidden;
       cursor: pointer;
-      transition: border-color 0.2s, transform 0.2s;
+      transition: box-shadow 0.25s;
+      background: var(--cream);
     }
-    .post-card:hover {
-      border-color: #aaa;
-      transform: translateY(-2px);
-    }
+    .post-card:hover { box-shadow: 0 6px 28px rgba(28,23,20,0.08); }
     .post-card-img {
-      background: var(--surface);
-      height: 140px;
+      background: var(--cream-2);
+      height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-bottom: 1px solid var(--border);
       overflow: hidden;
     }
-    .post-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .post-card-body { padding: 1rem 1.25rem 1.25rem; }
+    .post-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .post-card-body { padding: 1.25rem 1.5rem 1.5rem; }
     .post-card-body h3 {
       font-family: var(--serif);
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 400;
-      line-height: 1.35;
-      margin: 0.5rem 0 0.4rem;
+      line-height: 1.3;
+      margin: 0.5rem 0 0.5rem;
     }
     .post-card-body p {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.6;
       margin-bottom: 0.75rem;
     }
-
-    /* EMPTY STATE */
     .empty {
+      grid-column: 1/-1;
       text-align: center;
       padding: 4rem 0;
-      color: var(--faint);
       font-size: 14px;
+      color: var(--faint);
     }
 
-    /* FOOTER */
+    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
-      margin-top: 2rem;
+      background: var(--cream-2);
     }
     .footer-inner {
-      max-width: 860px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 1.5rem 2rem;
+      padding: 1.75rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .footer-logo {
-      font-family: var(--serif);
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .footer-copy {
-      font-size: 11px;
-      color: var(--faint);
-    }
+    .footer-logo { font-family: var(--serif); font-size: 16px; font-weight: 400; color: var(--muted); }
+    .footer-copy { font-size: 11px; color: var(--faint); letter-spacing: 0.04em; }
 
-    /* RESPONSIVE */
-    @media (max-width: 700px) {
-      .hero, .featured-card { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 36px; }
-      .hero-visual { display: none; }
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { height: 260px; }
+      .hero-left { padding: 3.5rem 1.5rem 3rem; }
+      .hero-left h1 { font-size: 44px; }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-img { min-height: 220px; }
       .posts-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 10px; letter-spacing: 0.1em; }
+      .nav-inner { padding: 0 1.25rem; }
+      .content { padding: 0 1.25rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <div class="nav-inner">
       <a href="index.html" class="logo">diego.com</a>
       <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="index.html#articulos">Artículos</a></li>
-        <li><a href="index.html#arte">Arte</a></li>
-        <li><a href="sobre.html">Sobre mí</a></li>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </div>
   </nav>
 
-  <div class="container">
-
-    <section class="hero">
-      <div>
-        <h1>Ideas, arte<br>y <em>reflexiones</em><br>sin filtro.</h1>
-        <p class="hero-desc">Un espacio para explorar el proceso creativo, compartir ilustraciones y escribir sobre lo que vale la pena pensar dos veces.</p>
-      </div>
-      <div class="hero-visual">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="40" r="30" stroke="#111" stroke-width="1.5"/>
-          <path d="M20 40 Q40 20 60 40 Q40 60 20 40Z" stroke="#111" stroke-width="1.5" fill="none"/>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Ideas, arte<br>y <em>reflexiones</em><br>sin filtro.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-desc">Un espacio para explorar el proceso creativo, compartir ilustraciones y escribir sobre lo que vale la pena pensar dos veces.</p>
+      <a href="#blog" class="hero-cta">
+        Entrar al blog
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+    <div class="hero-right">
+      <!-- Reemplaza el div.hero-placeholder con: <img src="tu-imagen.jpg" alt="hero" /> -->
+      <div class="hero-placeholder">
+        <svg width="120" height="160" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="140" rx="4" ry="20" stroke="#7a6e65" stroke-width="1"/>
+          <path d="M60 120 Q40 90 20 60 Q50 70 60 95" stroke="#7a6e65" stroke-width="1" fill="none"/>
+          <path d="M60 110 Q80 80 100 50 Q70 65 60 90" stroke="#7a6e65" stroke-width="1" fill="none"/>
+          <path d="M60 100 Q30 65 35 30" stroke="#7a6e65" stroke-width="1" fill="none"/>
+          <path d="M60 95 Q90 60 85 25" stroke="#7a6e65" stroke-width="1" fill="none"/>
         </svg>
       </div>
-    </section>
-
-    <!-- ADSENSE: reemplaza este bloque con tu código de Google AdSense -->
-    <div class="ad-banner">
-      <span>Publicidad</span>
     </div>
-    <!-- FIN ADSENSE -->
+  </section>
 
-    <section class="featured" id="featured">
-      <div class="section-label">Entrada destacada</div>
+  <!-- ADSENSE -->
+  <div class="ad-wrap">
+    <div class="ad-inner">
+      <!-- Reemplaza este comentario con tu código de Google AdSense -->
+      <span class="ad-label">Publicidad</span>
+    </div>
+  </div>
+
+  <!-- BLOG -->
+  <div class="content" id="blog">
+
+    <section class="featured-section">
+      <p class="section-label">Entrada destacada</p>
       <div id="featured-post"></div>
     </section>
 
-    <section class="posts-section" id="articulos">
-      <div class="section-label">Últimas entradas</div>
+    <section class="posts-section">
+      <p class="section-label">Últimas entradas</p>
       <div class="posts-grid" id="posts-grid"></div>
     </section>
 
   </div>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <span class="footer-logo">diego.com</span>
@@ -359,36 +427,42 @@
       .then(r => r.json())
       .then(data => {
         const posts = data.posts || [];
+
         if (!posts.length) {
           document.getElementById('featured-post').innerHTML =
-            '<div class="empty">Aún no hay entradas publicadas.</div>';
+            '<p style="color:var(--faint);font-size:14px;padding:2rem 0;">Aún no hay entradas publicadas.</p>';
           return;
         }
 
-        const featured = posts[0];
+        const f = posts[0];
         document.getElementById('featured-post').innerHTML = `
-          <a href="post.html?id=${featured.id}" class="featured-card">
+          <a href="post.html?id=${f.id}" class="featured-card">
             <div class="featured-img">
-              ${featured.image
-                ? `<img src="${featured.image}" alt="${featured.title}" />`
-                : `<svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#ccc" stroke-width="1"/><path d="M15 30 Q30 15 45 30 Q30 45 15 30Z" stroke="#ccc" stroke-width="1" fill="none"/></svg>`}
+              ${f.image
+                ? `<img src="${f.image}" alt="${f.title}" />`
+                : `<svg width="60" height="80" viewBox="0 0 60 80" fill="none"><ellipse cx="30" cy="72" rx="2" ry="8" stroke="#b0a69c" stroke-width="1"/><path d="M30 64 Q18 48 8 28 Q26 36 30 52" stroke="#b0a69c" stroke-width="1" fill="none"/><path d="M30 58 Q42 42 52 22 Q34 32 30 48" stroke="#b0a69c" stroke-width="1" fill="none"/></svg>`}
             </div>
             <div class="featured-content">
-              <span class="tag">${featured.category}</span>
-              <h2>${featured.title}</h2>
-              <p>${featured.excerpt}</p>
-              <span class="meta">${featured.date} · ${featured.readTime} de lectura</span>
+              <span class="tag">${f.category}</span>
+              <h2>${f.title}</h2>
+              <p>${f.excerpt}</p>
+              <span class="meta">${f.date} · ${f.readTime} de lectura</span>
             </div>
           </a>`;
 
         const rest = posts.slice(1);
-        if (!rest.length) return;
+        if (!rest.length) {
+          document.getElementById('posts-grid').innerHTML =
+            '<p class="empty">Próximamente más entradas.</p>';
+          return;
+        }
+
         document.getElementById('posts-grid').innerHTML = rest.map(p => `
           <a href="post.html?id=${p.id}" class="post-card">
             <div class="post-card-img">
               ${p.image
                 ? `<img src="${p.image}" alt="${p.title}" />`
-                : `<svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="#ccc" stroke-width="1"/></svg>`}
+                : `<svg width="40" height="52" viewBox="0 0 40 52" fill="none"><ellipse cx="20" cy="48" rx="1.5" ry="5" stroke="#b0a69c" stroke-width="1"/><path d="M20 43 Q10 32 4 18 Q18 24 20 35" stroke="#b0a69c" stroke-width="1" fill="none"/><path d="M20 39 Q30 28 36 14 Q22 22 20 33" stroke="#b0a69c" stroke-width="1" fill="none"/></svg>`}
             </div>
             <div class="post-card-body">
               <span class="tag">${p.category}</span>
@@ -400,7 +474,7 @@
       })
       .catch(() => {
         document.getElementById('featured-post').innerHTML =
-          '<div class="empty">No se pudieron cargar las entradas.</div>';
+          '<p style="color:var(--faint);font-size:14px;">No se pudieron cargar las entradas.</p>';
       });
   </script>
 
